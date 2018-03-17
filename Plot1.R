@@ -15,5 +15,5 @@ if(!exists("SCC")){
 #Plot function & Using PNG Device
 TotalByYear <- aggregate(Emissions ~ year, NEI, sum)
 png("Plot1.png")
-barplot(height=TotalByYear$Emissions, names.arg = TotalByYear$year, col=TotalByYear$year, main="Total PM2.5 emission by year",xlab="Years", ylab = "Emission")
+barplot(height=TotalByYear$Emissions, names.arg = TotalByYear$year, col=c("Magenta", "Cyan", "Green", "Orange"), main="Total PM2.5 emission by year",xlab="Years", ylab = "Emission")
 dev.off()
