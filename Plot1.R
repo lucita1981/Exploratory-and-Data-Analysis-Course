@@ -4,7 +4,7 @@ fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
 download.file(fileUrl, destfile="./data/Data.zip")
 unzip(zipfile="./data/Data.zip",exdir="./data")
 
-## This first line will likely take a few seconds. Be patient!
+## Reading Files
 if(!exists("NEI")){
   NEI <- readRDS("./data/summarySCC_PM25.rds")
 }
