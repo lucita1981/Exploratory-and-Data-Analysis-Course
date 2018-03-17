@@ -1,5 +1,4 @@
 ## Downloading & Unzip
-
 if(!file.exists("./data")){dir.create("./data")}
 fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
 download.file(fileUrl, destfile="./data/Data.zip")
