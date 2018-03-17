@@ -14,12 +14,12 @@ if(!exists("SCC")){
 
 #Plot function & Using PNG Device
 library(ggplot2)
-merge <- merge(NEI, SCC, by="SCC")
-coal <- grepl("coal", merge$Short.Name, ignore.case=TRUE)
-subcoal <- subset( merge, coalMatches)
+mix <- merge(NEI, SCC, by="SCC")
+coal <- grepl("coal", mix$Short.Name, ignore.case=TRUE)
+subcoal <- mix[coal,]
 TotalByYear <- aggregate(Emissions ~ year, subcoal, sum)
-png("Plot4.png", width=640, height=480)
+png("Plot4.png")
 g <- ggplot(TotalByYear, aes(factor(year), Emissions))
-g <- g + geom_bar(stat="identity") + xlab("year") + ylab(" Emissions") + ggtitle("Total emissions from coal sources 1999-2008")
+g <- g + geom_bar(stat="identity", aes(colour= year, fill=year)) + xlab("Year") + ylab(" Emissions") + ggtitle("Total Emissions from Coal Combustion-related sources 1999-2008")
 print(g)
 dev.off()
